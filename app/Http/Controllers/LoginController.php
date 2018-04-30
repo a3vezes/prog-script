@@ -18,6 +18,7 @@ class LoginController extends Controller
         if($request->email == "admin@admin.com" && $request->senha == "admin"){
             return redirect()->route('admin');
         }else
+        $erros = 'Login ou senha incorreto';
         return redirect()->back();
     }
 }

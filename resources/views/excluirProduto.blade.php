@@ -9,6 +9,14 @@
     <title>Salão de Beleza</title>
 </head>
 <body>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+    <strong>Erro!</strong>
+    @foreach ($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+    </div>
+    @endif
       
         <form action="{{Route('excluirValidate')}}" method="post">
                 {{ csrf_field() }} 
@@ -23,7 +31,8 @@
                   <input type="text" class="form-control" name="barras">
                 </div>
                 
-                <button type="submit" class="btn btn-default">Excluir	</button>		
+                <button type="submit" class="btn btn-default">Excluir	</button>	
+                <a href="{{ URL::route('voltar') }}" class="btn btn-default"> Voltar </a>	
               </fieldset>		
             </form>
         <!-- Footer -->

@@ -1,5 +1,17 @@
 @extends('template')
 @section('body')
+
+@if ($errors->any())
+<fieldset>
+<div class="alert alert-danger">
+<strong>Erro!</strong>
+@foreach ($errors->all() as $error)
+<p>{{ $error }}</p>
+@endforeach
+</div>
+</fieldset>
+@endif
+<!-- [FIM] ERRO -->
 <form action="{{Route('logar')}}" method="post">
     {{ csrf_field() }} 
 				<fieldset>

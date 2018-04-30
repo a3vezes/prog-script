@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/logar', 'LoginController@logar')->name('logar');
 Route::get('/listar','ProdutoController@listar')->name('listarProduto');
-
+Route::get('/voltar','Controller@voltar')->name('voltar');
 Route::group(['prefix' => '/admin'], function () {
     Route::get('/','AdminController@admin')->name('admin');
     Route::group(['prefix' => '/produto'], function () {

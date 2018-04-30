@@ -12,8 +12,12 @@ class ProdutoController extends Controller
     }
     public function cadastroValidate(Request $request){
         $request->validate([
-            'nome' => 'required',
-            'barras' => 'required|numeric|min:11'
+            'nome' => 'required|string',
+            'barras' => 'required|numeric|',
+            'marca' => 'required|string|max:50',
+            'venda' => 'required|integer',
+            'compra' => 'required|integer',
+            'validade' => 'required|date'
         ]);
         return redirect()->route('admin');
     }
@@ -22,8 +26,9 @@ class ProdutoController extends Controller
     }
     public function excluirValidate(Request $request){
         $request->validate([
-            'nome' => 'required',
-            'barras' => 'required|numeric|min:11'
+            'nome' => 'required|string',
+            'barras' => 'required|numeric',
+            
         ]);
         return redirect()->route('admin');
     }
